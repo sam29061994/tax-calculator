@@ -1,17 +1,17 @@
-const currencyFmt = new Intl.NumberFormat('en-US', {
+const currencyFmt = new Intl.NumberFormat('en-CA', {
   style: 'currency',
-  currency: 'USD',
+  currency: 'CAD',
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
 });
 
-const wholeDollarFmt = new Intl.NumberFormat('en-US', {
+const wholeDollarFmt = new Intl.NumberFormat('en-CA', {
   style: 'currency',
-  currency: 'USD',
+  currency: 'CAD',
   maximumFractionDigits: 0,
 });
 
-const percentFmt = new Intl.NumberFormat('en-US', {
+const percentFmt = new Intl.NumberFormat('en-CA', {
   style: 'percent',
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
