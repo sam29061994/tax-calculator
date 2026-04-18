@@ -41,21 +41,30 @@ export function TaxForm({ onSubmit }: Props) {
         <label htmlFor="salary" className="block text-sm font-medium text-slate-700">
           Annual salary
         </label>
-        <input
-          id="salary"
-          type="number"
-          min="0"
-          step="any"
-          inputMode="decimal"
-          value={salary}
-          onChange={(e) => {
-            setSalary(e.target.value);
-            if (errors.salary) setErrors((prev) => ({ ...prev, salary: undefined }));
-          }}
-          aria-invalid={errors.salary ? true : undefined}
-          aria-describedby={errors.salary ? 'salary-error' : undefined}
-          className="mt-1 block w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500"
-        />
+        <div className="relative mt-1">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-sm text-slate-500"
+          >
+            $
+          </span>
+          <input
+            id="salary"
+            type="number"
+            min="0"
+            step="any"
+            inputMode="decimal"
+            placeholder="0.00"
+            value={salary}
+            onChange={(e) => {
+              setSalary(e.target.value);
+              if (errors.salary) setErrors((prev) => ({ ...prev, salary: undefined }));
+            }}
+            aria-invalid={errors.salary ? true : undefined}
+            aria-describedby={errors.salary ? 'salary-error' : undefined}
+            className="block w-full rounded-md border border-slate-300 py-2 pl-7 pr-3 text-sm shadow-sm focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500"
+          />
+        </div>
         {errors.salary && (
           <p id="salary-error" className="mt-1 text-sm text-red-600">
             {errors.salary}
@@ -76,7 +85,7 @@ export function TaxForm({ onSubmit }: Props) {
           }}
           aria-invalid={errors.year ? true : undefined}
           aria-describedby={errors.year ? 'year-error' : undefined}
-          className="mt-1 block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500"
+          className="mt-1 block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500"
         >
           <option value="">Select a year</option>
           {YEARS.map((y) => (
@@ -94,7 +103,7 @@ export function TaxForm({ onSubmit }: Props) {
 
       <button
         type="submit"
-        className="w-full rounded-md bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
+        className="w-full rounded-md bg-slate-900 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
       >
         Calculate
       </button>
