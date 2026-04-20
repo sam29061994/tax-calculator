@@ -1,6 +1,6 @@
 import { useState, type SyntheticEvent } from 'react';
 
-const YEARS = [2022, 2021, 2020, 2019];
+const YEARS = [2023, 2022, 2021, 2020, 2019];
 
 type Errors = {
   salary?: string;

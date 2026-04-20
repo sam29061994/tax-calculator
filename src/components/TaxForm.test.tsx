@@ -14,7 +14,7 @@ describe('TaxForm', () => {
   test('year dropdown only offers supported years', () => {
     render(<TaxForm onSubmit={vi.fn()} />);
     const options = screen.getAllByRole('option').map((o) => o.textContent);
-    expect(options).toEqual(['Select a year', '2022', '2021', '2020', '2019']);
+    expect(options).toEqual(['Select a year', '2023', '2022', '2021', '2020', '2019']);
   });
 
   test('submits parsed numeric values on valid input', async () => {
